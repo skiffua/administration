@@ -1,0 +1,153 @@
+<AppLockerPolicy Version="1">
+
+  <RuleCollection Type="Exe" EnforcementMode="Enabled">
+
+```
+<!-- ===================== -->
+<!-- 🎮 GAMING PLATFORMS -->
+<!-- ===================== -->
+
+<FilePublisherRule Id="1" Name="Block Valve (Steam)" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Valve Corp." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="2" Name="Block Epic Games" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Epic Games Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="3" Name="Block Riot Games" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Riot Games, Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="4" Name="Block Blizzard" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Blizzard Entertainment, Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="5" Name="Block Ubisoft" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Ubisoft Entertainment" ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="6" Name="Block EA" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Electronic Arts Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="7" Name="Block Roblox" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Roblox Corporation" ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<!-- ===================== -->
+<!-- 🔒 VPN CLIENTS -->
+<!-- ===================== -->
+
+<FilePublisherRule Id="20" Name="Block NordVPN" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=NordVPN S.A." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="21" Name="Block ProtonVPN" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Proton AG" ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="22" Name="Block Surfshark" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Surfshark Ltd." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="23" Name="Block ExpressVPN" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Express VPN International Ltd." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="24" Name="Block Windscribe" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Windscribe Limited" ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="25" Name="Block WireGuard" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=WireGuard LLC" ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="26" Name="Block OpenVPN" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=OpenVPN Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="27" Name="Block Cloudflare WARP" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Cloudflare, Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="28" Name="Block Cisco VPN" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Cisco Systems, Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+
+<FilePublisherRule Id="29" Name="Block Fortinet VPN" UserOrGroupSid="S-1-1-0" Action="Deny">
+  <Conditions>
+    <FilePublisherCondition PublisherName="O=Fortinet, Inc." ProductName="*" BinaryName="*">
+      <BinaryVersionRange LowSection="0.0.0.0" HighSection="*" />
+    </FilePublisherCondition>
+  </Conditions>
+</FilePublisherRule>
+```
+
+  </RuleCollection>
+
+</AppLockerPolicy>
