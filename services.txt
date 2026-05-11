@@ -1,0 +1,65 @@
+сервер працює за адресою 192.168.14.240. 
+Логін skynet
+пароль s1111
+
+Cockpit	сервіс - використовується для веб доступу до сервера, адреса:
+https://192.168.14.240:9090/ 
+(логін і пароль вище)
+
+
+База даних MYSQL. Можна використовувати у навчальних цілях - практичні, котрольні, тести, тощо.
+- веб доступ http://192.168.14.240:8082/
+- шлях на сервері
+\db
+- yaml файл =>
+
+services:
+  db:
+    # Використовуємо стару добру версію 10.5, вона дуже невибаглива
+    image: mariadb:10.5
+    container_name: light_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+    ports:
+      - "3306:3306"
+
+  adminer:
+    # Adminer теж візьмемо фіксованої версії для стабільності
+    image: adminer:4.8.1
+    container_name: light_admin
+    restart: always
+    ports:
+      - "8082:8080"
+    depends_on:
+      - db
+	  
+
+Мережевий чат. Можна використовувати для обміну повідомленннями між кабінетами, файлами між пк, навчальні цілі, тощо.
+- веб доступ http://192.168.14.240:8082/
+- шлях на сервері
+\rocketchat
+
+- .yaml файл =>
+services:
+  mongo:
+    image: mongo:4.0
+    container_name: rocketchat-mongo-1
+    restart: unless-stopped
+    volumes:
+      - ./data/db:/data/db
+    command: mongod --oplogSize 128 --replSet rs0
+  rocketchat:
+    image: registry.rocket.chat/rocketchat/rocket.chat:3.18.5
+    container_name: rocketchat-rocketchat-1
+    restart: unless-stopped
+    environment:
+      - PORT=3000
+      - ROOT_URL=http://192.168.14.240:3000
+      - MONGO_URL=mongodb://mongo:27017/rocketchat
+      - MONGO_OPLOG_URL=mongodb://mongo:27017/local
+    depends_on:
+      - mongo
+    ports:
+      - 3000:3000
