@@ -19,3 +19,6 @@ powershell.exe -ExecutionPolicy Bypass -File "\\SERVER\school-control\scripts\02
 
 🌐 Lock Proxy
 powershell.exe -ExecutionPolicy Bypass -File "\\SERVER\school-control\scripts\04_proxy\lock_proxy.ps1"
+
+SafeExamBrowser
+"C:\Program Files\SafeExamBrowser\Application\SafeExamBrowser.exe" https://moodle-ua.free.nf/
