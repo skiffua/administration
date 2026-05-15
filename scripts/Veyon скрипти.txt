@@ -4,16 +4,16 @@
 powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\lockdown\block_games.ps1"
 
 🔓 Unblock Games (не протестовано!)
-powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\scripts\lockdown\unblock_games.ps1"
+powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\lockdown\unblock_games.ps1"
 
 🔒 Block VPN (не протестовано!)
-powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\\scripts\vpn\block_vpn.ps1"
+powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\vpn\block_vpn.ps1"
 
 🌐 Lock Proxy (не протестовано!)
-powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\scripts\proxy\lock_proxy.ps1"
+powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\proxy\lock_proxy.ps1"
 
 🌐 Unlock Proxy
-powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\scripts\proxy\unlock_proxy.ps1"
+powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\scripts\proxy\unlock_proxy.ps1"
 
 SafeExamBrowser
 "C:\Program Files\SafeExamBrowser\Application\SafeExamBrowser.exe" https://moodle-ua.free.nf/
