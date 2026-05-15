@@ -9,7 +9,7 @@
 * **Moodle** — система підтримки навчання.
     * *Адреса:* [moodle-ua.free.nf](https://moodle-ua.free.nf/)
     * *Хостинг:* iFastNet / InfinityFree
-    * *Бекапи:* `\\Komp0\files`
+    * *Бекапи:* `\\Komp0\archiv\backup`
 * **Safe Exam Browser (SEB)** — монопольне проходження тестів.
     * *Завантаження:* [Офіційний сайт](https://safeexambrowser.org/download_en.html)
     * *Скрипти:* Папка `\scripts` (запуск через Veyon)
