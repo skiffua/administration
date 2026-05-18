@@ -7,12 +7,118 @@ https://192.168.14.240:9090/
 (логін і пароль вище)
 
 SQUID
----
+- шлях на сервері 
+/etc/squid
+- файл конфігурації squid.conf
+
+# Вказуємо порт (ви його, скоріш за все, видалили)
+http_port 3128
+
+
+visible_hostname localhost
+
+# Ваше правило блокування (з попередніх кроків)
+
+acl gaming_domains dstdomain "/etc/squid/gaming_sites.txt"
+
+
+# Вказуємо шлях до нашої кастомної папки
+error_directory /usr/share/squid/errors/custom
+# Вказуємо сторінку помилки для цього ACL
+
+# Шлях має починатися з / (це локальний файл) або бути повним URL (http://...)
+
+# deny_info block_page.html gaming_domains
+deny_info http://192.168.14.240:8081 gaming_domains
+
+
+# Сама заборона
+
+http_access deny gaming_domains
+
+- список заблокованих ігор - програм 
+neverssl.com
+
+# Roblox
+
+roblox.com
+
+www.roblox.com
+
+api.roblox.com
+
+
+# Minecraft (авторизація та ресурси)
+
+minecraft.net
+
+www.minecraft.net
+
+mojang.com
+
+minecraftservices.com
+
+
+# Steam
+
+steampowered.com
+
+steamcommunity.com
+
+steamstatic.com
+
+
+# Epic Games & Fortnite
+
+epicgames.com
+
+fortnite.com
+
+unrealengine.com
+
+
+# Riot Games (League of Legends, Valorant)
+
+riotgames.com
+
+leagueoflegends.com
+
+playvalorant.com
+
+
+# Blizzard (Battle.net)
+
+blizzard.com
+
+battle.net
+
+poki.com
+
+crazygames.com
+
+agar.io
+
+slither.io
+
+skribbl.io
+
+armorgames.com
+
+kongregate.com
+
+twitch.tv
+
+discord.com
+
+discordapp.com
+
+discord.gg
+
 
 База даних MYSQL.
 - веб доступ http://192.168.14.240:8082/
 - шлях на сервері
-\db
+/db
 - yaml файл =>
 
 services:
@@ -41,7 +147,7 @@ services:
 Rocket Chat
 - веб доступ http://192.168.14.240:8082/
 - шлях на сервері
-\rocketchat
+/rocketchat
 
 - .yaml файл =>
 services:
