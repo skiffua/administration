@@ -212,6 +212,14 @@
 <span class="comment"># Сама заборона доступу</span>
 <span class="keyword">http_access</span> <span class="keyword">deny</span> gaming_domains</pre>
 
+    <h3>Скрипти керування проксі-сервером (Debian)</h3>
+    <p>Для перезапуску сервісу після редагування списків або повної зупинки фільтрації безпосередньо на сервері:</p>
+    <ul>
+        <li><strong>Перезапуск (застосування змін):</strong> <code>sudo systemctl restart squid</code> або перечит конфігу без розриву з'єднань: <code>sudo squid -k reconfigure</code></li>
+        <li><strong>Зупинка сервісу:</strong> <code>sudo systemctl stop squid</code></li>
+        <li><strong>Запуск сервісу:</strong> <code>sudo systemctl start squid</code></li>
+    </ul>
+
     <h3>Список заблокованих доменів (gaming_sites.txt)</h3>
     <p><strong>Шлях до списку:</strong> <code>/etc/squid/gaming_sites.txt</code></p>
     
