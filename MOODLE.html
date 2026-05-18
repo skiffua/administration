@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резервне копіювання Moodle</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #222222;
+            --accent-color: #e66100;
+            --accent-hover: #b34a00;
+            --border-color: #dddddd;
+            --card-bg: #ffffff;
+            --dark-bg: #1a1a1a;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--dark-bg);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .nav-btn {
+            background-color: var(--dark-bg);
+            color: #ffffff !important;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--dark-bg);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            border-left: 4px solid var(--dark-bg);
+            padding-left: 12px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        li ul {
+            margin-top: 6px;
+            margin-bottom: 0;
+            list-style-type: square;
+        }
+
+        code, kbd {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+            color: #d14;
+        }
+
+        li code {
+            color: var(--text-color);
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent-hover);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 25px 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        blockquote {
+            background-color: #fdf6f0;
+            border-left: 4px solid var(--accent-color);
+            margin: 20px 0;
+            padding: 15px 20px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        blockquote p {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        ol li {
+            margin-bottom: 15px;
+        }
+
+        ol li strong {
+            color: var(--dark-bg);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px 5px; }
+            .container { padding: 20px; }
+            .nav-bar { flex-direction: column; gap: 10px; align-items: center; }
+            table, thead, tbody, th, td, tr { display: block; }
+            thead tr { position: absolute; top: -9999px; left: -9999px; }
+            tr { border: 1px solid var(--border-color); margin-bottom: 10px; }
+            td { border: none; border-bottom: 1px solid #eee; position: relative; padding-left: 50%; }
+            td:before { position: absolute; top: 12px; left: 15px; width: 45%; padding-right: 10px; white-space: nowrap; font-weight: bold; }
+            td:nth-of-type(1):before { content: "Компонент"; }
+            td:nth-of-type(2):before { content: "Статус"; }
+            td:nth-of-type(3):before { content: "Метод збереження"; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Навігація між документами -->
+    <div class="nav-bar">
+        <a href="INDEX.html" class="nav-btn">← Паспорт класу</a>
+        <a href="CONFIGURATION.html" class="nav-btn">Конфігурація сервісів →</a>
+    </div>
+
+    <h1>Резервне копіювання Moodle</h1>
+    <div class="subtitle">Інструкція з повного бекапу системи Moodle 4.4.3 (moodle-ua.free.nf) через панель керування хостингом та FTP без використання командного рядка.</div>
+
+    <h2>1. Специфікація даних для архівації</h2>
+    <p>Для повного відновлення платформи у разі збою або міграції критично важливо мати три складові компоненти:</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Компонент</th>
+            <th>Статус для бекапу</th>
+            <th>Метод збереження</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><strong>База даних (SQL)</strong></td>
+            <td><code style="color: green; background: #eefbee;">Обов'язково</code></td>
+            <td>Експорт через phpMyAdmin в один клік</td>
+        </tr>
+        <tr>
+            <td><strong>Папка <code>/filedir</code></strong></td>
+            <td><code style="color: green; background: #eefbee;">Обов'язково</code></td>
+            <td>Всі завантажені файли, тести, картинки (копіювати повністю)</td>
+        </tr>
+        <tr>
+            <td><strong>Папка <code>/lang</code></strong></td>
+            <td><code style="color: #666;">Бажано</code></td>
+            <td>Локалізовані мовні пакети (важить мало, можна зкопіювати швидко)</td>
+        </tr>
+        <tr>
+            <td><strong>Кеш (<code>/cache</code>, <code>/localcache</code>)</strong></td>
+            <td><code style="color: red; background: #fdeeec;">Ігнорувати</code></td>
+            <td>Тимчасові файли. Не включати в архів (уповільнюють процес)</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h2>2. Покроковий алгоритм дій</h2>
+    <ol>
+        <li>
+            <strong>Експорт Бази Даних:</strong>
+            <br>Зайти в панель хостингу, відкрити інструмент <code>phpMyAdmin</code>. Вибрати базу даних сайту у лівій колонці. Перейти на вкладку <strong>"Експорт" (Export)</strong>. Обрати спосіб "Швидкий", формат "SQL" та натиснути кнопку <strong>"Вперед" (Go)</strong>.
+        </li>
+        <li>
+            <strong>Збереження файлового сховища (mdata):</strong>
+            <br>Через "Файловий менеджер" хостингу або FTP-клієнт (FileZilla) перейти у директорію <code>moodledata</code> (або <code>mdata</code>).
+            <ul>
+                <li>Виділити та заархівувати папку <code>/filedir</code>. Якщо сервер безкоштовного хостингу зависає через великий об'єм файлів, скачувати вміст напряму через FTP частинами.</li>
+                <li>Аналогічно заархівувати або скачати папку <code>/lang</code>.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Бекап вихідного коду сайту:</strong>
+            <br>У папці веб-сервера (наприклад, <code>public_html</code> або <code>moodle</code>) створити `.zip` архів усього вмісту. Обов'язково перевірити наявність файлу <code>config.php</code> у корені архіву.
+        </li>
+    </ol>
+
+    <blockquote>
+        <p>Локальна директорія для збереження готових бекапів у комп'ютерному класі: <code>\\Komp0\archiv\backup\Moodle_[ДАТА]</code></p>
+    </blockquote>
+
+    <h2>3. Швидка перевірка поточної версії системи</h2>
+    <ul>
+        <li><strong>Через інтерфейс (Стан системи / Плагіни):</strong>
+            <br>Блок <em>Адміністрування сайту</em> &rarr; розділ <strong>"Стан системи" (System status)</strong> або <strong>"Плагіни" (Plugins)</strong> &rarr; <em>"Огляд плагінів"</em>. Точна версія Moodle відображається у верхній частині робочої області.
+        </li>
+        <li><strong>Альтернативний метод (у футері):</strong>
+            <br>Прокрутити будь-яку сторінку сайту до самого кінця. У стандартних темах версія збірки дублюється дрібним шрифтом у футері (нижній панелі) поруч із документацією.
+        </li>
+        <li><strong>Через серверні файли:</strong>
+            <br>Переглянути вміст файлу <code>version.php</code> в кореневій директорії сайту. Точний реліз прописаний у рядку зі змінною <code>$release</code>.
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
