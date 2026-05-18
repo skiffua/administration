@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфігурація сервісів сервера</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #222222;
+            --accent-color: #e66100;
+            --accent-hover: #b34a00;
+            --border-color: #dddddd;
+            --card-bg: #ffffff;
+            --dark-bg: #1a1a1a;
+            --code-bg: #272727;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--accent-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--dark-bg);
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            border-left: 4px solid var(--dark-bg);
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--dark-bg);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+            color: var(--text-color);
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #e0e0e0;
+            padding: 15px 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 15px 0 25px 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .comment { color: #7c7c7c; font-style: italic; }
+        .keyword { color: #ff9d00; font-weight: bold; }
+        .string { color: #a5c261; }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--accent-hover);
+        }
+
+        .credentials-box {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .credentials-box table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .credentials-box td {
+            padding: 6px 10px;
+            border: none;
+        }
+
+        .credentials-box td:first-child {
+            font-weight: bold;
+            color: var(--dark-bg);
+            width: 120px;
+        }
+
+        .meta-info {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 15px 5px; }
+            .container { padding: 20px; }
+            .two-cols { grid-template-columns: 1fr; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Конфігурація сервісів сервера</h1>
+    <div class="subtitle">Технічний опис налаштувань, шляхів конфігурації та параметрів розгортання локальних сервісів.</div>
+
+    <div class="credentials-box">
+        <h3 style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.5px;">Глобальні дані сервера</h3>
+        <table>
+            <tr>
+                <td>IP-адреса:</td>
+                <td><code>192.168.14.240</code></td>
+            </tr>
+            <tr>
+                <td>Логін:</td>
+                <td><code>skynet</code></td>
+            </tr>
+            <tr>
+                <td>Пароль:</td>
+                <td><code>s1111</code></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>1. Cockpit (Веб-панель)</h2>
+    <div class="meta-info">
+        <p>Використовується для веб-доступу до керування сервером (термінал, логи, моніторинг).</p>
+        <p><strong>Адреса сервісу:</strong> <a href="https://192.168.14.240:9090/" target="_blank">https://192.168.14.240:9090/</a></p>
+        <p><em>Для авторизації використовувати глобальний логін та пароль сервера (skynet / s1111).</em></p>
+    </div>
+
+    <h2>2. SQUID Proxy (Фільтрація трафіку)</h2>
+    <div class="meta-info">
+        <p><strong>Шлях на сервері:</strong> <code>/etc/squid</code></p>
+        <p><strong>Файл конфігурації:</strong> <code>/etc/squid/squid.conf</code></p>
+    </div>
+
+    <h3>Вміст конфігураційного файлу squid.conf</h3>
+    <pre>
+<span class="comment"># Вказуємо порт (обов'язковий для проксі)</span>
+<span class="keyword">http_port</span> 3128
+
+<span class="keyword">visible_hostname</span> localhost
+
+<span class="comment"># Ваше правило блокування ігрових доменів</span>
+<span class="keyword">acl</span> gaming_domains <span class="keyword">dstdomain</span> <span class="string">"/etc/squid/gaming_sites.txt"</span>
+
+<span class="comment"># Вказуємо шлях до нашої кастомної папки помилок</span>
+<span class="keyword">error_directory</span> /usr/share/squid/errors/custom
+
+<span class="comment"># Вказуємо сторінку помилки для цього ACL (локальний файл або редірект)</span>
+<span class="comment"># deny_info block_page.html gaming_domains</span>
+<span class="keyword">deny_info</span> http://192.168.14.240:8081 gaming_domains
+
+<span class="comment"># Сама заборона доступу</span>
+<span class="keyword">http_access</span> <span class="keyword">deny</span> gaming_domains</pre>
+
+    <h3>Список заблокованих доменів (gaming_sites.txt)</h3>
+    <p><strong>Шлях до списку:</strong> <code>/etc/squid/gaming_sites.txt</code></p>
+    
+    <div class="two-cols">
+        <pre style="margin-top: 0; border-left-color: #666; font-size: 0.85rem; background-color: #1e1e1e;">
+neverssl.com
+
+<span class="comment"># Roblox</span>
+roblox.com
+www.roblox.com
+api.roblox.com
+
+<span class="comment"># Minecraft</span>
+minecraft.net
+www.minecraft.net
+mojang.com
+minecraftservices.com
+
+<span class="comment"># Steam</span>
+steampowered.com
+steamcommunity.com
+steamstatic.com
+
+<span class="comment"># Epic Games & Fortnite</span>
+epicgames.com
+fortnite.com
+unrealengine.com</pre>
+
+        <pre style="margin-top: 0; border-left-color: #666; font-size: 0.85rem; background-color: #1e1e1e;">
+<span class="comment"># Riot Games</span>
+riotgames.com
+leagueoflegends.com
+playvalorant.com
+
+<span class="comment"># Blizzard (Battle.net)</span>
+blizzard.com
+battle.net
+
+<span class="comment"># Браузерні ігри та медіа</span>
+poki.com
+crazygames.com
+agar.io
+slither.io
+skribbl.io
+armorgames.com
+kongregate.com
+twitch.tv
+
+<span class="comment"># Discord</span>
+discord.com
+discordapp.com
+discord.gg</pre>
+    </div>
+
+    <h2>3. База даних MySQL (MariaDB + Adminer)</h2>
+    <div class="meta-info">
+        <p><strong>Веб-доступ (Adminer):</strong> <a href="http://192.168.14.240:8082/" target="_blank">http://192.168.14.240:8082/</a></p>
+        <p><strong>Шлях до проекту на сервері:</strong> <code>/db</code></p>
+    </div>
+
+    <h3>Файл конфігурації docker-compose.yml</h3>
+    <pre>
+<span class="keyword">services:</span>
+  <span class="keyword">db:</span>
+    <span class="comment"># Використовуємо версію 10.5, вона дуже невибаглива</span>
+    <span class="keyword">image:</span> mariadb:10.5
+    <span class="keyword">container_name:</span> light_db
+    <span class="keyword">restart:</span> always
+    <span class="keyword">environment:</span>
+      <span class="keyword">MYSQL_ROOT_PASSWORD:</span> root
+      <span class="keyword">MYSQL_DATABASE:</span> test_db
+    <span class="keyword">ports:</span>
+      - <span class="string">"3306:3306"</span>
+
+  <span class="keyword">adminer:</span>
+    <span class="comment"># Фіксована версія для стабільності веб-інтерфейсу</span>
+    <span class="keyword">image:</span> adminer:4.8.1
+    <span class="keyword">container_name:</span> light_admin
+    <span class="keyword">restart:</span> always
+    <span class="keyword">ports:</span>
+      - <span class="string">"8082:8080"</span>
+    <span class="keyword">depends_on:</span>
+      - db</pre>
+
+    <h2>4. Локальний месенджер Rocket Chat</h2>
+    <div class="meta-info">
+        <p><strong>Веб-доступ:</strong> <a href="http://192.168.14.240:3000/" target="_blank">http://192.168.14.240:3000/</a></p>
+        <p><strong>Шлях до проекту на сервері:</strong> <code>/rocketchat</code></p>
+    </div>
+
+    <h3>Файл конфігурації docker-compose.yml</h3>
+    <pre>
+<span class="keyword">services:</span>
+  <span class="keyword">mongo:</span>
+    <span class="keyword">image:</span> mongo:4.0
+    <span class="keyword">container_name:</span> rocketchat-mongo-1
+    <span class="keyword">restart:</span> unless-stopped
+    <span class="keyword">volumes:</span>
+      - ./data/db:/data/db
+    <span class="keyword">command:</span> mongod --oplogSize 128 --replSet rs0
+
+  <span class="keyword">rocketchat:</span>
+    <span class="keyword">image:</span> registry.rocket.chat/rocketchat/rocket.chat:3.18.5
+    <span class="keyword">container_name:</span> rocketchat-rocketchat-1
+    <span class="keyword">restart:</span> unless-stopped
+    <span class="keyword">environment:</span>
+      - PORT=3000
+      - ROOT_URL=http://192.168.14.240:3000
+      - MONGO_URL=mongodb://mongo:27017/rocketchat
+      - MONGO_OPLOG_URL=mongodb://mongo:27017/local
+    <span class="keyword">depends_on:</span>
+      - mongo
+    <span class="keyword">ports:</span>
+      - 3000:3000</pre>
+</div>
+
+</body>
+</html>
