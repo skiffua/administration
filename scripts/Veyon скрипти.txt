@@ -17,3 +17,6 @@ powershell.exe -ExecutionPolicy Bypass -File "D:\projects\administrations\script
 
 SafeExamBrowser
 "C:\Program Files\SafeExamBrowser\Application\SafeExamBrowser.exe" https://moodle-ua.free.nf/
+
+Roblox, Launcher removing
+cmd.exe /c "del /f /q /s %userprofile%\Downloads\roblox.exe %userprofile%\Desktop\roblox.exe %localappdata%\roblox.exe %userprofile%\Desktop\roblox.lnk %appdata%\Microsoft\Windows\"Start Menu"\Programs\roblox.lnk %userprofile%\Downloads\tlauncher.exe %userprofile%\Desktop\tlauncher.exe %localappdata%\tlauncher.exe %userprofile%\Desktop\tlauncher.lnk %appdata%\Microsoft\Windows\"Start Menu"\Programs\tlauncher.lnk %userprofile%\Downloads\steam.exe %userprofile%\Desktop\steam.exe %userprofile%\Desktop\steam.lnk %appdata%\Microsoft\Windows\"Start Menu"\Programs\steam.lnk"
